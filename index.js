@@ -5,7 +5,7 @@ import cors from "cors";
 // import bcryptjs from "bcryptjs"
 import userroute from "./route/user.route.js";
 // import bookRoute from "./route/book.route.js"
-import bookrouter from "./route/book.route.js";
+import bookroute from "./route/book.route.js";
 // import router from "./route/book.route.js";
 const app = express();
 app.use(cors());
@@ -13,7 +13,7 @@ app.use(express.json());
 dotenv.config();
 const PORT = process.env.PORT;
 const URI = process.env.MongodbURI;
-import path from "path";
+// import path from "path";
 
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
@@ -30,16 +30,16 @@ try {
 
 // connect router
 
-app.use("/book", bookrouter);
+app.use("/book", bookroute);
 app.use("/user", userroute);
 
-if (process.env.NODE_ENV === "production") {
-  const dirPath = path.resolve();
-  app.use(express.static("frontend"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(dirPath, "frontend", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   const dirPath = path.resolve();
+//   app.use(express.static("frontend"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(dirPath, "frontend", "index.html"));
+//   });
+// }
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
