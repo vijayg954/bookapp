@@ -5,7 +5,7 @@ import cors from "cors";
 // import bcryptjs from "bcryptjs"
 import userroute from "./route/user.route.js";
 // import bookRoute from "./route/book.route.js"
-import bookRoute from "../backend/route/book.route.js";
+import bookrouter from "../backend/route/book.route.js";
 // import router from "./route/book.route.js";
 const app = express();
 app.use(cors());
@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 4000;
 const URI = process.env.MongodbURI || 4000;
 import  path from "path";
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World!");
+// });
 
 //connect to mongodb
 
@@ -30,7 +30,7 @@ try {
 
 // connect router
 
-app.use("/book", bookRoute);
+app.use("/book", bookrouter);
 app.use("/user", userroute);
 
 if(process.env.NODE_ENV==="production"){
