@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 4000;
 const URI = process.env.MongodbURI || 4000;
 import  path from "path";
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 //connect to mongodb
 
@@ -35,9 +35,9 @@ app.use("/user", userroute);
 
 if(process.env.NODE_ENV==="production"){
   const dirPath= path.resolve();
-  app.use(express.static("frontend/dist"));
+  app.use(express.static("frontend"));
   app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(dirPath,"frontend","dist","index.html"))
+    res.sendFile(path.resolve(dirPath,"frontend","index.html"))
   })
 }
 
