@@ -11,9 +11,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 dotenv.config();
-const PORT = process.env.PORT || 4000;
-const URI = process.env.MongodbURI || 4000;
-import  path from "path";
+const PORT = process.env.PORT;
+const URI = process.env.MongodbURI;
+import path from "path";
 
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
@@ -33,12 +33,12 @@ try {
 app.use("/book", bookrouter);
 app.use("/user", userroute);
 
-if(process.env.NODE_ENV==="production"){
-  const dirPath= path.resolve();
+if (process.env.NODE_ENV === "production") {
+  const dirPath = path.resolve();
   app.use(express.static("frontend"));
-  app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(dirPath,"frontend","index.html"))
-  })
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(dirPath, "frontend", "index.html"));
+  });
 }
 
 app.listen(PORT, () => {
