@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import bcryptjs from "bcryptjs"
+// import bcryptjs from "bcryptjs"
 import userroute from "./route/user.route.js";
 // import bookRoute from "./route/book.route.js"
 import bookRoute from "../backend/route/book.route.js";
