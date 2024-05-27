@@ -5,7 +5,7 @@ import cors from "cors";
 // import bcryptjs from "bcryptjs"
 import userroute from "./route/user.route.js";
 // import bookRoute from "./route/book.route.js"
-import bookrouter from "../backend/route/book.route.js";
+import bookrouter from "./route/book.route.js";
 // import router from "./route/book.route.js";
 const app = express();
 app.use(cors());
